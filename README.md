@@ -1,11 +1,12 @@
 # Stock Screen
 
-A dynamic stock ticker display for OBS or browser sources, allowing live updates and customizable tickers.
+A dynamic stock ticker display for OBS/Streamlabs browser sources, allowing live updates and customizable tickers.
 
 ---
 
 ## Features
 
+- **Open Source**: Completely free using the MIT license, donate if you want.
 - **Live Stock Updates**: Fetch real-time stock prices with smooth scrolling updates.
 - **Customizable Tickers**: Easily modify tickers through the included GUI.
 - **Company Logos**: Automatically fetch and display company logos for a clean, professional look.
@@ -13,9 +14,9 @@ A dynamic stock ticker display for OBS or browser sources, allowing live updates
 
 ---
 
-## OBS-Friendly CSS Presets 🎨  
+## OBS/Streamlabs-Friendly CSS Presets 🎨  
 
-To use these presets, simply apply the following CSS to your OBS Browser Source settings:
+To use these presets, simply apply the following CSS to your OBS/Streamlabs Browser Source settings:
 
 1. **Transparent Background with White Text**  
    ```css
