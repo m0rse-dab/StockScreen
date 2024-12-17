@@ -1,4 +1,4 @@
-# Stock Screen
+# StockScreen
 
 A dynamic stock ticker display for OBS/Streamlabs browser sources, allowing live updates and customizable tickers.
 
