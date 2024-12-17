@@ -21,7 +21,79 @@ To use these presets, simply apply the following CSS to your OBS/Streamlabs Brow
 
 1. **Transparent Background with White Text**  
    ```css
-   body { background-color: rgba(0, 0, 0, 0); color: white; margin: 0px; overflow: hidden; }
+   body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background-color: transparent; /* Make the background transparent */
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    height: 100vh; /* Ensure it fills the viewport height */
+}
+
+.ticker-wrap {
+    width: 100%;
+    overflow: hidden;
+    background-color: transparent; /* Keep the background transparent */
+    position: relative;
+}
+
+.ticker {
+    display: flex;
+    width: max-content;
+    animation: scroll 20s linear infinite;
+    white-space: nowrap; /* Ensure it scrolls horizontally */
+}
+
+.ticker:hover {
+    animation-play-state: paused; /* Pause on hover */
+}
+
+@keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+.stock {
+    display: inline-block;
+    padding: 12px 15px;
+    font-size: 16px;
+    color: #fff; /* Set text color to white */
+    border-radius: 8px; /* Rounded corners for the stock items */
+    background-color: transparent; /* Transparent background */
+    margin-right: 30px; /* Add space between stock items */
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.stock:hover {
+    background-color: rgba(0, 0, 0, 0.1); /* Add subtle background color on hover */
+}
+
+.green {
+    color: #2ecc71; /* Green color for positive stocks */
+    font-weight: 600;
+}
+
+.red {
+    color: #e74c3c; /* Red color for negative stocks */
+    font-weight: 600;
+}
+
+.logo {
+    height: 28px;
+    width: 28px;
+    margin-right: 12px;
+    vertical-align: middle;
+    border-radius: 50%; /* Round logo images */
+    object-fit: cover;
+    border: 1px solid rgba(0, 0, 0, 0.1); /* Subtle border around logos */
+}
+
+strong {
+    font-weight: 600;
+    letter-spacing: -0.5px;
+}
+
    ```
 
 2. **Transparent Background with Black Text**  
