@@ -1,7 +1,7 @@
 # StockScreen
 
 A dynamic stock ticker display for OBS/Streamlabs browser sources, allowing live updates and customizable tickers.
-Since it's HTML outputed it can be used in numerous ways and be repurposed for other projects.
+Since it's just HTML outputed it can be used in numerous ways and be repurposed for other projects.
 
 ---
 
@@ -46,6 +46,8 @@ Windows:
 ---
 1. Unzip the release version somewhere.
 2. Run the executable.
+---
+Other systems:
 ---
 1. **Dependencies**: Ensure Python and required libraries are installed.  
 2. Clone the repository:
