@@ -1,7 +1,7 @@
 # StockScreen
 
 A dynamic stock ticker display for OBS/Streamlabs browser sources, allowing live updates and customizable tickers.  
-Since it's just HTML outputted, it can be used in numerous ways and repurposed for other projects.
+Since it's just web based, it can be used in numerous ways and repurposed for other projects.
 
 ---
 
@@ -20,7 +20,7 @@ Since it's just HTML outputted, it can be used in numerous ways and repurposed f
 To use these presets, simply apply the following CSS to your OBS/Streamlabs Browser Source settings:
 
 ### 1. **Transparent Background with White Text**  
-\``css
+```css
 body {
     margin: 0;
     font-family: 'Inter', sans-serif;
@@ -93,12 +93,12 @@ strong {
     font-weight: 600;
     letter-spacing: -0.5px;
 }
-\``
+```
 
 ### 2. **Transparent Background with Black Text**  
-\``css
+```css
 body { background-color: rgba(0, 0, 0, 0); color: black; margin: 0px; overflow: hidden; }
-\``
+```
 
 ### 3. **White Background with Black Text**  
 \``css
