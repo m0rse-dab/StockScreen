@@ -1,6 +1,7 @@
 # StockScreen
 
 A dynamic stock ticker display for OBS/Streamlabs browser sources, allowing live updates and customizable tickers.
+Since it's HTML outputed it can be used in numerous ways and be repurposed for other projects.
 
 ---
 
