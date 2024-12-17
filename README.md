@@ -40,9 +40,10 @@ To use these presets, simply apply the following CSS to your OBS/Streamlabs Brow
    ```
 
 ---
-
+## Windows:
+---
+Unzip the release version somewhere and run the executable.
 ## How to Run
-**Windows:**Unzip the release version somewhere and run the executable
 ---
 1. **Dependencies**: Ensure Python and required libraries are installed.  
 2. Clone the repository:
