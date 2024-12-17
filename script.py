@@ -8,6 +8,7 @@ import http.server
 import socketserver
 import tkinter as tk
 from tkinter import simpledialog, messagebox
+import webbrowser  # Added for opening the default browser
 
 # CONFIGURATION
 OUTPUT_FILE = "index.html"  # HTML output file
@@ -24,6 +25,22 @@ tickers = ["AAPL", "MSFT", "GOOG", "AMZN", "TSLA", "RKLB"]
 if not os.path.exists(LOGO_DIR):
     os.makedirs(LOGO_DIR)
 
+# Load tickers from JSON file if it exists
+def load_tickers():
+    global tickers
+    if os.path.exists(JSON_FILE):
+        try:
+            with open(JSON_FILE, "r", encoding="utf-8") as json_file:
+                data = json.load(json_file)
+                tickers = list(data.keys())
+                print(f"Loaded tickers from {JSON_FILE}: {tickers}")
+        except Exception as e:
+            print(f"Error loading tickers from {JSON_FILE}: {e}")
+    else:
+        print("No JSON file found, using default tickers.")
+
+
+load_tickers()
 
 def get_stock_data(symbols):
     """Fetch stock data using yfinance."""
@@ -47,7 +64,6 @@ def get_stock_data(symbols):
             stock_data[symbol] = (None, None, None)
     return stock_data
 
-
 def get_company_domain(symbol):
     """Fetch company domain for Clearbit logo API."""
     try:
@@ -58,7 +74,6 @@ def get_company_domain(symbol):
     except Exception as e:
         print(f"Error fetching domain for {symbol}: {e}")
     return f"{symbol.lower()}.com"
-
 
 def download_logo(symbol):
     """Download and save company logos."""
@@ -79,7 +94,6 @@ def download_logo(symbol):
             print(f"Error downloading logo for {symbol}: {e}")
     return logo_path
 
-
 def update_json():
     """Save stock data into a JSON file and download logos."""
     stock_data = get_stock_data(tickers)
@@ -93,16 +107,21 @@ def update_json():
         json.dump(enhanced_data, json_file)
     print("Updated stock data and logos.")
 
-
-def start_server():
+def start_server(stop_event):
     """Start a local HTTP server."""
     handler = http.server.SimpleHTTPRequestHandler
+
     with socketserver.TCPServer(("", SERVER_PORT), handler) as httpd:
         print(f"Serving at http://localhost:{SERVER_PORT}/{OUTPUT_FILE}")
-        httpd.serve_forever()
 
+        # Automatically open the browser
+        webbrowser.open(f"http://localhost:{SERVER_PORT}/{OUTPUT_FILE}", new=2)
 
-def open_gui():
+        # Serve until stop_event is set
+        while not stop_event.is_set():
+            httpd.handle_request()
+
+def open_gui(stop_event):
     """GUI to manage tickers live."""
     global tickers
 
@@ -127,6 +146,11 @@ def open_gui():
     def show_tickers():
         messagebox.showinfo("Current Tickers", "\n".join(tickers))
 
+    def on_close():
+        stop_event.set()
+        root.destroy()
+        print("GUI closed. Stopping server and exiting.")
+
     root = tk.Tk()
     root.title("Stock Ticker Manager")
     root.geometry("300x200")
@@ -136,17 +160,19 @@ def open_gui():
     tk.Button(root, text="Show Tickers", command=show_tickers, width=20).pack(pady=5)
     tk.Button(root, text="Update Data", command=update_json, width=20).pack(pady=5)
 
+    root.protocol("WM_DELETE_WINDOW", on_close)
     root.mainloop()
-
 
 if __name__ == "__main__":
     print("Starting stock ticker server...")
-    threading.Thread(target=open_gui, daemon=True).start()  # Launch the GUI in a thread
-    update_json()
+
+    stop_event = threading.Event()
+
+    # Start the GUI in a thread
+    threading.Thread(target=open_gui, args=(stop_event,), daemon=True).start()
 
     # Start a thread to periodically update stock data
     threading.Thread(target=lambda: [update_json() or time.sleep(UPDATE_INTERVAL) for _ in iter(int, 1)], daemon=True).start()
 
     # Start the local server
-    start_server()
-
+    start_server(stop_event)
