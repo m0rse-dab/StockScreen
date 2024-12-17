@@ -1,7 +1,7 @@
 # StockScreen
 
-A dynamic stock ticker display for OBS/Streamlabs browser sources, allowing live updates and customizable tickers.
-Since it's just HTML outputed it can be used in numerous ways and be repurposed for other projects.
+A dynamic stock ticker display for OBS/Streamlabs browser sources, allowing live updates and customizable tickers.  
+Since it's just HTML outputted, it can be used in numerous ways and repurposed for other projects.
 
 ---
 
@@ -17,12 +17,10 @@ Since it's just HTML outputed it can be used in numerous ways and be repurposed 
 
 ## OBS/Streamlabs-Friendly CSS Presets 🎨  
 
-# Custom CSS for Ticker in OBS/Streamlabs
+To use these presets, simply apply the following CSS to your OBS/Streamlabs Browser Source settings:
 
-This CSS snippet allows you to create a transparent ticker in OBS/Streamlabs with white text and a transparent background
-## CSS Code:
-
-\`\`\`css
+### 1. **Transparent Background with White Text**  
+\``css
 body {
     margin: 0;
     font-family: 'Inter', sans-serif;
@@ -95,41 +93,46 @@ strong {
     font-weight: 600;
     letter-spacing: -0.5px;
 }
-\`\`\`
+\``
 
-## How to Use:
+### 2. **Transparent Background with Black Text**  
+\``css
+body { background-color: rgba(0, 0, 0, 0); color: black; margin: 0px; overflow: hidden; }
+\``
 
-1. Copy the CSS code provided above.
-2. Paste it into your custom CSS field in OBS/Streamlabs.
-3. Adjust it according to your needs, such as the ticker's animation speed or colors.
+### 3. **White Background with Black Text**  
+\``css
+body { background-color: white; color: black; margin: 0px; overflow: hidden; }
+\``
 
-Feel free to customize the CSS further based on your preferences or streaming theme!
-   ```
+### 4. **Black Background with White Text**  
+\``css
+body { background-color: black; color: white; margin: 0px; overflow: hidden; }
+\``
 
 ---
+
 ## How to Run
----
-Windows:
----
+
+### Windows:
 1. Unzip the release version somewhere.
 2. Run the executable.
----
-Other systems:
----
+
+### Other systems:
 1. **Dependencies**: Ensure Python and required libraries are installed.  
 2. Clone the repository:
-   ```bash
+   \```bash
    git clone https://github.com/m0rse-dab/StockScreen.git
    cd StockScreen
-   ```
+   \```
 3. Install requirements:
-   ```bash
+   \```bash
    pip install -r requirements.txt
-   ```
+   \```
 4. Run the program:
-   ```bash
+   \```bash
    python main.py
-   ```
+   \```
 5. Open the browser window at `http://localhost:8000/stock_ticker.html` to view the stock ticker.
 
 ---
