@@ -97,18 +97,18 @@ strong {
 
 ### 2. **Transparent Background with Black Text**  
 ```css
-body { background-color: rgba(0, 0, 0, 0); color: black; margin: 0px; overflow: hidden; }
+
 ```
 
 ### 3. **White Background with Black Text**  
-\``css
-body { background-color: white; color: black; margin: 0px; overflow: hidden; }
-\``
+```css
+
+```
 
 ### 4. **Black Background with White Text**  
-\``css
-body { background-color: black; color: white; margin: 0px; overflow: hidden; }
-\``
+```css
+
+```
 
 ---
 
@@ -121,18 +121,18 @@ body { background-color: black; color: white; margin: 0px; overflow: hidden; }
 ### Other systems:
 1. **Dependencies**: Ensure Python and required libraries are installed.  
 2. Clone the repository:
-   \```bash
+   ```bash
    git clone https://github.com/m0rse-dab/StockScreen.git
    cd StockScreen
-   \```
+   ```
 3. Install requirements:
-   \```bash
+   ```bash
    pip install -r requirements.txt
-   \```
+   ```
 4. Run the program:
-   \```bash
+   ```bash
    python main.py
-   \```
+   ```
 5. Open the browser window at `http://localhost:8000/stock_ticker.html` to view the stock ticker.
 
 ---
