@@ -17,7 +17,7 @@ Since it's just web based, it can be used in numerous ways and repurposed for ot
 
 ## OBS/Streamlabs-Friendly CSS Presets 🎨  
 
-To use these presets, simply apply the following CSS to your OBS/Streamlabs Browser Source settings:
+To use these presets, simply apply the following CSS to your OBS/Streamlabs Browser Source settings or just edit your main styles.css file:
 
 ### 1. **Transparent Background with White Text**  
 ```css
@@ -95,19 +95,81 @@ strong {
 }
 ```
 
-### 2. **Transparent Background with Black Text**  
+### 2. **Black Background with White Text**  
 ```css
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background-color: black; /* Set background to black */
+    color: white; /* Set text color to white */
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    height: 100vh; /* Ensure it fills the viewport height */
+}
 
-```
+.ticker-wrap {
+    width: 100%;
+    overflow: hidden;
+    background-color: black; /* Set background to black */
+    position: relative;
+}
 
-### 3. **White Background with Black Text**  
-```css
+.ticker {
+    display: flex;
+    width: max-content;
+    animation: scroll 20s linear infinite;
+    white-space: nowrap; /* Ensure it scrolls horizontally */
+}
 
-```
+.ticker:hover {
+    animation-play-state: paused; /* Pause on hover */
+}
 
-### 4. **Black Background with White Text**  
-```css
+@keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
 
+.stock {
+    display: inline-block;
+    padding: 12px 15px;
+    font-size: 16px;
+    color: #fff; /* Set text color to white */
+    border-radius: 8px; /* Rounded corners for the stock items */
+    background-color: transparent; /* Transparent background */
+    margin-right: 30px; /* Add space between stock items */
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.stock:hover {
+    background-color: rgba(255, 255, 255, 0.1); /* Add subtle background color on hover */
+}
+
+.green {
+    color: #2ecc71; /* Green color for positive stocks */
+    font-weight: 600;
+}
+
+.red {
+    color: #e74c3c; /* Red color for negative stocks */
+    font-weight: 600;
+}
+
+.logo {
+    height: 28px;
+    width: 28px;
+    margin-right: 12px;
+    vertical-align: middle;
+    border-radius: 50%; /* Round logo images */
+    object-fit: cover;
+    border: 1px solid rgba(0, 0, 0, 0.1); /* Subtle border around logos */
+}
+
+strong {
+    font-weight: 600;
+    letter-spacing: -0.5px;
+}
 ```
 
 ---
