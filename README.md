@@ -17,11 +17,13 @@ Since it's just HTML outputed it can be used in numerous ways and be repurposed 
 
 ## OBS/Streamlabs-Friendly CSS Presets 🎨  
 
-To use these presets, simply apply the following CSS to your OBS/Streamlabs Browser Source settings:
+# Custom CSS for Ticker in OBS/Streamlabs
 
-1. **Transparent Background with White Text**  
-   ```css
-   body {
+This CSS snippet allows you to create a transparent ticker in OBS/Streamlabs with white text and a transparent background
+## CSS Code:
+
+\`\`\`css
+body {
     margin: 0;
     font-family: 'Inter', sans-serif;
     background-color: transparent; /* Make the background transparent */
@@ -93,22 +95,15 @@ strong {
     font-weight: 600;
     letter-spacing: -0.5px;
 }
+\`\`\`
 
-   ```
+## How to Use:
 
-2. **Transparent Background with Black Text**  
-   ```css
-   body { background-color: rgba(0, 0, 0, 0); color: black; margin: 0px; overflow: hidden; }
-   ```
+1. Copy the CSS code provided above.
+2. Paste it into your custom CSS field in OBS/Streamlabs.
+3. Adjust it according to your needs, such as the ticker's animation speed or colors.
 
-3. **White Background with Black Text**  
-   ```css
-   body { background-color: white; color: black; margin: 0px; overflow: hidden; }
-   ```
-
-4. **Black Background with White Text**  
-   ```css
-   body { background-color: black; color: white; margin: 0px; overflow: hidden; }
+Feel free to customize the CSS further based on your preferences or streaming theme!
    ```
 
 ---
