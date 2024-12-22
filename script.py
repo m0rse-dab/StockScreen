@@ -131,6 +131,7 @@ def open_gui(stop_event):
             new_ticker = new_ticker.upper()
             if new_ticker not in tickers:
                 tickers.append(new_ticker)
+                refresh_list()
                 messagebox.showinfo("Success", f"{new_ticker} added.")
             else:
                 messagebox.showwarning("Warning", f"{new_ticker} already exists.")
@@ -139,12 +140,17 @@ def open_gui(stop_event):
         rem_ticker = simpledialog.askstring("Input", "Enter ticker to remove:")
         if rem_ticker and rem_ticker.upper() in tickers:
             tickers.remove(rem_ticker.upper())
+            refresh_list()
             messagebox.showinfo("Success", f"{rem_ticker.upper()} removed.")
         else:
             messagebox.showwarning("Warning", f"{rem_ticker} not in list.")
 
-    def show_tickers():
-        messagebox.showinfo("Current Tickers", "\n".join(tickers))
+    def refresh_list():
+        for widget in frame.winfo_children():
+            widget.destroy()
+        tk.Label(frame, text="Stocks", font=("Arial", 12, "bold")).pack()
+        for ticker in tickers:
+            tk.Label(frame, text=ticker, font=("Arial", 10)).pack()
 
     def on_close():
         stop_event.set()
@@ -153,12 +159,23 @@ def open_gui(stop_event):
 
     root = tk.Tk()
     root.title("Stock Ticker Manager")
-    root.geometry("300x200")
+    root.geometry("300x400")
 
-    tk.Button(root, text="Add Ticker", command=add_ticker, width=20).pack(pady=5)
-    tk.Button(root, text="Remove Ticker", command=remove_ticker, width=20).pack(pady=5)
-    tk.Button(root, text="Show Tickers", command=show_tickers, width=20).pack(pady=5)
-    tk.Button(root, text="Update Data", command=update_json, width=20).pack(pady=5)
+    header = tk.Frame(root)
+    header.pack(pady=10)
+
+    tk.Button(header, text="Add", command=add_ticker).grid(row=0, column=0, padx=10)
+    tk.Button(header, text="Remove", command=remove_ticker).grid(row=0, column=1, padx=10)
+    try:
+        refresh_icon = tk.PhotoImage(file="refresh_icon.png")  # Replace with a path to your refresh icon image
+        tk.Button(header, image=refresh_icon, command=refresh_list).grid(row=0, column=2, padx=10)
+    except tk.TclError:
+        tk.Button(header, text="Refresh", command=refresh_list).grid(row=0, column=2, padx=10)
+
+    frame = tk.Frame(root)
+    frame.pack(fill="both", expand=True, pady=20)
+
+    refresh_list()
 
     root.protocol("WM_DELETE_WINDOW", on_close)
     root.mainloop()
