@@ -19,22 +19,23 @@ Since it's just HTML outputted, it can be used in numerous ways and repurposed f
 
 To use these presets, simply apply the following CSS to your OBS/Streamlabs Browser Source settings:
 
-### 1. **Transparent Background with White Text**  
-\``css
+### 1. Transparent Background with White Text
+
+```css
 body {
     margin: 0;
     font-family: 'Inter', sans-serif;
-    background-color: transparent; /* Make the background transparent */
+    background-color: transparent;
     overflow: hidden;
     display: flex;
     align-items: center;
-    height: 100vh; /* Ensure it fills the viewport height */
+    height: 100vh;
 }
 
 .ticker-wrap {
     width: 100%;
     overflow: hidden;
-    background-color: transparent; /* Keep the background transparent */
+    background-color: transparent;
     position: relative;
 }
 
@@ -42,11 +43,11 @@ body {
     display: flex;
     width: max-content;
     animation: scroll 20s linear infinite;
-    white-space: nowrap; /* Ensure it scrolls horizontally */
+    white-space: nowrap;
 }
 
 .ticker:hover {
-    animation-play-state: paused; /* Pause on hover */
+    animation-play-state: paused;
 }
 
 @keyframes scroll {
@@ -58,24 +59,24 @@ body {
     display: inline-block;
     padding: 12px 15px;
     font-size: 16px;
-    color: #fff; /* Set text color to white */
-    border-radius: 8px; /* Rounded corners for the stock items */
-    background-color: transparent; /* Transparent background */
-    margin-right: 30px; /* Add space between stock items */
-    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+    color: #fff;
+    border-radius: 8px;
+    background-color: transparent;
+    margin-right: 30px;
+    transition: background-color 0.3s ease;
 }
 
 .stock:hover {
-    background-color: rgba(0, 0, 0, 0.1); /* Add subtle background color on hover */
+    background-color: rgba(0, 0, 0, 0.1);
 }
 
 .green {
-    color: #2ecc71; /* Green color for positive stocks */
+    color: #2ecc71;
     font-weight: 600;
 }
 
 .red {
-    color: #e74c3c; /* Red color for negative stocks */
+    color: #e74c3c;
     font-weight: 600;
 }
 
@@ -84,34 +85,35 @@ body {
     width: 28px;
     margin-right: 12px;
     vertical-align: middle;
-    border-radius: 50%; /* Round logo images */
+    border-radius: 50%;
     object-fit: cover;
-    border: 1px solid rgba(0, 0, 0, 0.1); /* Subtle border around logos */
+    border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 strong {
     font-weight: 600;
     letter-spacing: -0.5px;
 }
-\``
+```
 
-### 2. **Black background with white text**
-\``css
+### 2. Black Background with White Text
+
+```css
 body {
     margin: 0;
     font-family: 'Inter', sans-serif;
-    background-color: black; /* Set background to black */
-    color: white; /* Set text color to white */
+    background-color: black;
+    color: white;
     overflow: hidden;
     display: flex;
     align-items: center;
-    height: 100vh; /* Ensure it fills the viewport height */
+    height: 100vh;
 }
 
 .ticker-wrap {
     width: 100%;
     overflow: hidden;
-    background-color: black; /* Set background to black */
+    background-color: black;
     position: relative;
 }
 
@@ -119,11 +121,11 @@ body {
     display: flex;
     width: max-content;
     animation: scroll 20s linear infinite;
-    white-space: nowrap; /* Ensure it scrolls horizontally */
+    white-space: nowrap;
 }
 
 .ticker:hover {
-    animation-play-state: paused; /* Pause on hover */
+    animation-play-state: paused;
 }
 
 @keyframes scroll {
@@ -135,24 +137,24 @@ body {
     display: inline-block;
     padding: 12px 15px;
     font-size: 16px;
-    color: #fff; /* Set text color to white */
-    border-radius: 8px; /* Rounded corners for the stock items */
-    background-color: transparent; /* Transparent background */
-    margin-right: 30px; /* Add space between stock items */
-    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+    color: #fff;
+    border-radius: 8px;
+    background-color: transparent;
+    margin-right: 30px;
+    transition: background-color 0.3s ease;
 }
 
 .stock:hover {
-    background-color: rgba(255, 255, 255, 0.1); /* Add subtle background color on hover */
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
 .green {
-    color: #2ecc71; /* Green color for positive stocks */
+    color: #2ecc71;
     font-weight: 600;
 }
 
 .red {
-    color: #e74c3c; /* Red color for negative stocks */
+    color: #e74c3c;
     font-weight: 600;
 }
 
@@ -161,16 +163,16 @@ body {
     width: 28px;
     margin-right: 12px;
     vertical-align: middle;
-    border-radius: 50%; /* Round logo images */
+    border-radius: 50%;
     object-fit: cover;
-    border: 1px solid rgba(0, 0, 0, 0.1); /* Subtle border around logos */
+    border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 strong {
     font-weight: 600;
     letter-spacing: -0.5px;
 }
-\``
+```
 
 ---
 
@@ -183,18 +185,18 @@ strong {
 ### Other systems:
 1. **Dependencies**: Ensure Python and required libraries are installed.  
 2. Clone the repository:
-   \```bash
+   ```bash
    git clone https://github.com/m0rse-dab/StockScreen.git
    cd StockScreen
-   \```
+   ```
 3. Install requirements:
-   \```bash
+   ```bash
    pip install -r requirements.txt
-   \```
+   ```
 4. Run the program:
-   \```bash
+   ```bash
    python main.py
-   \```
+   ```
 5. Open the browser window at `http://localhost:8000/stock_ticker.html` to view the stock ticker.
 
 ---
@@ -210,4 +212,3 @@ If you find this tool useful, consider supporting me on [Ko-fi](https://ko-fi.co
 ## License
 
 This project is licensed under the MIT License.
-
