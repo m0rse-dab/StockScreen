@@ -201,11 +201,6 @@ strong {
 
 ---
 
-## Support My Work ☕  
-
-If you find this tool useful, consider supporting me on [Ko-fi](https://ko-fi.com/m0rse). Your support helps me keep developing tools like this!  
-
-[![Ko-fi](https://img.shields.io/badge/Support%20Me-Ko--fi-FF5E5B?style=for-the-badge&logo=ko-fi&logoColor=white)](https://ko-fi.com/your-kofi-link)
 
 ---
 
